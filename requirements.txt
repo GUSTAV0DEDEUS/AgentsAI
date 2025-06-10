@@ -1,0 +1,13 @@
+# Requirements for the project
+requests==2.32.3
+pydantic==2.10.2
+Flask==3.1.1
+
+## Agent Frameworks
+crewai==0.126.0
+
+### Google API Client Libraries
+google-api-python-client==2.171.0
+google-auth==2.40.3
+google-auth-oauthlib==1.2.2
+google-auth-httplib2==0.2.0
