@@ -7,9 +7,20 @@ def create_app(test_config=None):
         instance_relative_config=True,
     )
     
+
     app.config.from_mapping(
-        SECRET_KEY='dev'
+        SECRET_KEY='dev',
+        DATABASE=os.path.join(app.instance_path, 'db.sqlite3')
     )
+
+    
+    try:
+        os.makedirs(app.instance_path)
+    except OSError:
+        pass
+    
+    from . import db 
+    db.init_app(app)
     
     from src.flaskr import chat
     app.register_blueprint(chat.bp)
