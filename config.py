@@ -16,7 +16,7 @@ class Config:
     GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 
 class DevelopmentConfig(Config):
-    """Configuração para desenvolvimento."""
+    """Development configuration."""
     DEBUG = True
 
 class ProductionConfig(Config):

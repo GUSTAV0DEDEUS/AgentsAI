@@ -1,7 +1,13 @@
-from flask import Flask, render_template
+from flask import Blueprint, render_template
 
-def init_app(app: Flask):
-    app.add_url_rule('/', 'index', index)
-    
+bp = Blueprint(
+    'chat',
+    __name__,
+    template_folder='templates', 
+    static_folder='../static', 
+    url_prefix='/chat'
+)
+
+@bp.route('/')    
 def index():
-    return render_template('index.html')
+    return render_template('chat.html')
