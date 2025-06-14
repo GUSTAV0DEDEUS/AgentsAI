@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-error: #ef4444;
+          }
+          
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}Index{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+
+</head>
+<body class="bg-gray-50 text-gray-900 flex h-screen w-screen">
+    {% block content %}{% endblock %}
+</body>      
+</html>
