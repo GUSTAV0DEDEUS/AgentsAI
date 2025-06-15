@@ -1,0 +1,32 @@
+<form 
+    action="{{ url_for('chat.create_message') }}" 
+    method="post" 
+    class="flex flex-col shadow-sm w-10/12 p-4 rounded-2xl bg-white m-auto gap-4"
+>
+    <!-- campo oculto com o chatId -->
+    <input type="hidden" name="chatId" value="{{ chatId }}" />
+
+    <input
+        type="text"
+        name="message"
+        id="message"
+        autocomplete="off"
+        required
+        placeholder="Pergunte qualquer coisa..."
+        class="w-full text-gray-600 text-sm border-none focus:outline-none placeholder:text-gray-600"
+    />
+
+    <div class="flex justify-between">
+        <div class="flex justify-start items-center gap-1 cursor-pointer shadow-md px-4 py-2 rounded-full bg-white hover:bg-gray-100">
+            <i class='bx bx-paperclip text-gray-600 text-xl'></i>
+            <span class="text-sm text-gray-600">Selecionar Modelo</span>
+        </div>
+        <button
+            type="submit"
+            class="flex justify-start items-center gap-1 cursor-pointer shadow-md px-4 py-2 rounded-full bg-gray-950 hover:bg-gray-700"
+        >
+            <i class='bx bx-up-arrow-alt text-gray-200 text-xl'></i>
+            <span class="text-sm text-gray-200 font-bold">Enviar</span>
+        </button>
+    </div>
+</form>

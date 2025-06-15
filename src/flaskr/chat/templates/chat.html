@@ -25,21 +25,7 @@ stylesheets %}
                 </div>
             </div>
         </div>
-        <div class="flex flex-col shadow-sm w-10/12 p-4 rounded-2xl bg-white m-auto gap-4">
-            <input type="text"
-                class="w-full text-gray-600 text-sm border-none focus:outline-none placeholder:text-gray-600"
-                placeholder="Pergunte qualquer coisa..."></input>
-            <div class="flex justify-between">
-                <div class="flex justify-start items-center gap-1 cursor-pointer shadow-md px-4 py-2 rounded-full bg-white hover:bg-gray-100">
-                    <i class='bx bx-paperclip text-gray-600 text-xl'></i>
-                    <span class="text-sm text-gray-600 ">Selecionar Modelo</span>
-                </div>
-                <div class="flex justify-start items-center gap-1 cursor-pointer shadow-md px-4 py-2 rounded-full bg-gray-950 hover:bg-gray-700">
-                    <i class='bx bx-up-arrow-alt text-gray-200 text-xl'></i>
-                    <span class="text-sm text-gray-200 font-bold">Enviar</span>
-                </div>
-            </div>
-        </div>
+        {% include "form_chat.html" %}
     </section>
 </main>
 {% endblock %}
