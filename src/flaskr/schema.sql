@@ -10,6 +10,6 @@ CREATE TABLE Message (
     role VARCHAR(10) CHECK (role IN ('User', 'Assistant')) NOT NULL,
     text TEXT NOT NULL,
     timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    type VARCHAR(10) CHECK (type IN ('agente', 'question')) NOT NULL,
+    type VARCHAR(10) CHECK (type IN ('agent', 'answer', 'question')) NOT NULL,
     FOREIGN KEY (chat_id) REFERENCES Chat(id) ON DELETE CASCADE
 );
