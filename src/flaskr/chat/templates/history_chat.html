@@ -1,8 +1,18 @@
-<div class="flex flex-col h-full items-start gap-3">
-    <h3 class="text-base font-semibold text-gray-500 select-none">Today</h3>
-    <ul class="flex flex-col gap-2 mt-1">
-        <li class="text-gray-700 text-sm select-none">Chat message 1</li>
-        <li class="text-gray-700 text-sm select-none">Chat message 2</li>
-        <li class="text-gray-700 text-sm select-none">Chat message 3</li>
-    </ul>
-</div>
+<div class="flex flex-col h-full items-start gap-4">
+    {% for day, chats in grouped_chats.items() %}
+      <div>
+        <h3 class="text-base font-semibold text-gray-500 select-none">{{ day }}</h3>
+        <ul class="flex flex-col gap-2 mt-1">
+          {% for chat in chats %}
+            <li class="text-gray-700 text-sm select-none">
+              <a href="{{ url_for('chat.chat', chatId=chat['id']) }}"
+                 class="{% if chatId == chat['id'] %}font-semibold text-gray-900{% endif %}">
+                {{ chat['title'] or 'Sem título' }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+  

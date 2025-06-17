@@ -1,0 +1,15 @@
+CREATE TABLE Chat (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    title TEXT NOT NULL
+);
+
+CREATE TABLE Message (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    chat_id INTEGER NOT NULL,
+    role VARCHAR(10) CHECK (role IN ('User', 'Assistant')) NOT NULL,
+    text TEXT NOT NULL,
+    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    type VARCHAR(10) CHECK (type IN ('agent', 'answer', 'question')) NOT NULL,
+    FOREIGN KEY (chat_id) REFERENCES Chat(id) ON DELETE CASCADE
+);
